@@ -1,0 +1,32 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: search-project
+  profiles:
+    group:
+      local:
+        - local
+    active: local
+  main:
+    # Boot 2.1 부터 프로젝트 상속 관계인 경우 bean 이 2중 생성되는 문제로 overwrite 옵션을 켜야 한다.
+    allow-bean-definition-overriding: ${ALLOW_BEAN_DEFINITION_OVERRIDING:true}
+
+    ##############################################################################
+    # JPA 설정
+    ##############################################################################
+    search-jpa:
+      # 스프링 영속성을 Controller 까지 확대. http://kingbbode.tistory.com/27 참고 바람. @Transactional 없이 동작되는 코드로 인해 true 로 변경
+      open-in-view: ${JPA_OPEN_IN_VIEW:true}
+      properties:
+        hibernate:
+          physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+          # N+1 쿼리 문제를 해결하기 위해 패치 사이즈를 100으로 부여. 부모 1 SQL 후에 자식에 대해서는 in 에  Id 를 100개 가지 넣고 조회
+          # N+1 참조 : https://jojoldu.tistory.com/165
+          # fetch_size 관련 참조 : https://kihoonkim.github.io/2017/09/09/java/noexception-in-stream-operations/
+          default_batch_fetch_size: ${HIBERNATE_DEFAULT_BATCH_FETCH_SIZE:100}
+          jdbc:
+            # timezone 설정
+            time_zone: ${HIBERNATE_TIME_ZONE:Asia/Seoul}
+

@@ -1,0 +1,14 @@
+apply plugin: 'application'
+mainClassName = 'com.example.frontoffice.ApplicationFrontOffice'
+
+bootJar {
+    baseName = 'search-project'
+}
+
+dependencies {
+    // sub project
+    implementation project(':common')
+    implementation project(':api')
+    implementation project(':web')
+    implementation project(':modules')
+}

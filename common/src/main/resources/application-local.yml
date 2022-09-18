@@ -1,0 +1,42 @@
+################################################################################
+# local 환경
+################################################################################
+
+spring:
+  search-jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: ${HIBERNATE_HBM2DDL_AUTO:update}
+        format_sql: true
+        query:
+          plan_cache_max_size: ${HIBERNATE_QUERY_PLAN_CACHE_MAX_SIZE:384}
+          plan_parameter_metadata_max_size: ${HIBERNATE_QUERY_PLAN_PARAMETER_METADATA_MAX_SIZE:24}
+          in_clause_parameter_padding: ${HIBERNATE_QUERY_IN_CLAUSE_PARAMETER_PADDING:true}
+        #criteria:
+          #literal_handling_mode: bind
+        use_sql_comments: ${HIBERNATE_USE_SQL_COMMENTS:true}
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+    remote:
+      restart:
+        enabled: false
+
+  database:
+    datasource:
+#      url: ${DB_CONN_STRING:jdbc:h2:mem:~/test}
+      url: jdbc:h2:mem:~/test_db;MODE=mysql;
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+#      username: ${DB_USERNAME:admin}
+#      password: ${DB_PASSWORD:1234}
+  h2:
+    console:
+      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+      path: /test_db  # 콘솔의 경로

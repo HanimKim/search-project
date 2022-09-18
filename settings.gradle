@@ -1,2 +1,7 @@
 rootProject.name = 'search-project'
+include 'common'
+include 'api'
+include 'frontoffice'
+include 'web'
+include 'modules'
 
