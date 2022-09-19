@@ -25,7 +25,7 @@ public class ApiSearchController {
             , notes = "블로그를 조회하는 api </br>" +
             " </br>")
     @GetMapping("/blog")
-    public List<BlogVo> findBlog(@ModelAttribute BlogFindDto dto) {
+    public String findBlog(@ModelAttribute BlogFindDto dto) {
         return searchService.findBlog(dto);
     }
 

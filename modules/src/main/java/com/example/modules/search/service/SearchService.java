@@ -6,5 +6,7 @@ import com.example.modules.search.value.BlogVo;
 import java.util.List;
 
 public interface SearchService {
-    List<BlogVo> findBlog(BlogFindDto dto);
+    String findBlog(BlogFindDto dto);
+    String SearchBlogByKakaoApi(BlogFindDto dto);
+    String setParameter(BlogFindDto dto, String type);
 }
