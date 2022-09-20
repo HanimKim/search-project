@@ -20,7 +20,7 @@ public class SearchServiceImplTest {
         dto.setQuery("검색어");
 
         // When
-        String param = searchService.setParameter(dto,"kakao");
+        String param = searchService.setBlogParameter(dto,"kakao");
 
         // Then
 //        Assert.assertEquals();

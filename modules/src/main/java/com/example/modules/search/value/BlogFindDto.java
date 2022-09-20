@@ -14,9 +14,9 @@ public class BlogFindDto {
     @ApiModelProperty(value = "결과 문서 정렬 방식, accuracy(정확도순) 또는 recency(최신순)", dataType = "string")
     private String sort;
 
-    @ApiModelProperty(value = "결과 페이지 번호", dataType = "integer")
+    @ApiModelProperty(value = "결과 페이지 번호, 1~50 사이의 값, 기본 값 1", dataType = "integer")
     private int page;
 
-    @ApiModelProperty(value = "한 페이지에 보여질 문서 수", dataType = "integer")
+    @ApiModelProperty(value = "한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10", dataType = "integer")
     private int size;
 }
