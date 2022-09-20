@@ -45,6 +45,8 @@ subprojects {
 
         // h2 내장 db
         runtimeOnly 'com.h2database:h2'
+//        implementation 'org.hibernate:hibernate-entitymanager'
+//        implementation 'org.javassist:javassist'
         compileOnly "org.springframework.boot:spring-boot-devtools"
 
         implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -70,20 +72,21 @@ subprojects {
     test {
         useJUnitPlatform()
     }
-}
 
-//////// for QueryDSL Qclass 경로 설정 start ////////
-//def generated='src/main/generated/querydsl'
-////def querydslDir = "$buildDir/generated/querydsl"
-//sourceSets {
-//    main.java.srcDirs += [ generated ]
-//}
-//
-//tasks.withType(JavaCompile) {
-//    options.annotationProcessorGeneratedSourcesDirectory = file(generated)
-//}
-//
-//clean.doLast {
-//    file(generated).deleteDir()
-//}
-//////// for QueryDSL Qclass 경로 설정 end ////////
+    ////// for QueryDSL Qclass 경로 설정 start ////////
+    def generated='src/main/generated/querydsl'
+//def querydslDir = "$buildDir/generated/querydsl"
+    sourceSets {
+        main.java.srcDirs += [ generated ]
+    }
+
+    tasks.withType(JavaCompile) {
+        options.annotationProcessorGeneratedSourcesDirectory = file(generated)
+    }
+
+    clean.doLast {
+        file(generated).deleteDir()
+    }
+    ////// for QueryDSL Qclass 경로 설정 end ////////
+
+}

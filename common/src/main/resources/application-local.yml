@@ -18,6 +18,8 @@ spring:
         #criteria:
           #literal_handling_mode: bind
         use_sql_comments: ${HIBERNATE_USE_SQL_COMMENTS:true}
+      show-sql: true
+    database: h2
   devtools:
     livereload:
       enabled: true
@@ -30,7 +32,7 @@ spring:
   database:
     datasource:
 #      url: ${DB_CONN_STRING:jdbc:h2:mem:~/test}
-      url: jdbc:h2:mem:~/test_db;MODE=mysql;
+      jdbc-url: ${DB_CONN_STRING:jdbc:h2:mem:~/test_db} #; MODE=mysql;
       driver-class-name: org.h2.Driver
       username: sa
       password:
