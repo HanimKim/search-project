@@ -6,7 +6,9 @@
 [search-project-1.0-SNAPSHOT.jar](https://github.com/HanimKim/search-project-bootjar)
 
 **sample**
+jar file을 다운받아 어플리케이션을 실행 시키고 싶으면 위의 링크에서 jar 파일을 다운로드 후,
 
+CMD 창에서 아래 명령어를 입력하여 실행시키면 됩니다.
 ```
 java -jar search-project-1.0-SNAPSHOT.jar
 ```
