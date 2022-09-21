@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class HttpConnectionUtil {
@@ -42,8 +43,8 @@ public class HttpConnectionUtil {
     }
 
 
-    private static String readBody(InputStream body){
-        InputStreamReader streamReader = new InputStreamReader(body);
+    private static String readBody(InputStream body) throws UnsupportedEncodingException {
+        InputStreamReader streamReader = new InputStreamReader(body, StandardCharsets.UTF_8);
 
         try (BufferedReader lineReader = new BufferedReader(streamReader)) {
             StringBuilder responseBody = new StringBuilder();

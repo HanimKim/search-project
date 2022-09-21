@@ -47,7 +47,7 @@ public class SearchServiceImpl implements SearchService{
 
     @Override
     public BlogVo findBlog(BlogFindDto dto) {
-        BlogVo blogVo = new BlogVo();
+        BlogVo blogVo = new BlogVo(null, null);
 
         String resultStr = SearchBlogByKakaoApi(dto);   // kakao api로 검색
 
@@ -79,6 +79,7 @@ public class SearchServiceImpl implements SearchService{
             String param = setBlogParameter(dto, KAKAO);
 
             Map<String, String> requestHeaders = new HashMap<>();
+            requestHeaders.put("Content-Type", "application/json;charset=UTF-8");
             requestHeaders.put("Authorization", "KakaoAK " + KAKAO_REST_API_KEY);
 
             result = HttpConnectionUtil.get(url+param, requestHeaders);
@@ -98,6 +99,7 @@ public class SearchServiceImpl implements SearchService{
             String param = setBlogParameter(dto, NAVER);
 
             Map<String, String> requestHeaders = new HashMap<>();
+            requestHeaders.put("Content-Type", "application/json;charset=UTF-8");
             requestHeaders.put("X-Naver-Client-Id", NAVER_CLIENT_ID);
             requestHeaders.put("X-Naver-Client-Secret", NAVER_CLIENT_SECRET);
 
@@ -170,7 +172,7 @@ public class SearchServiceImpl implements SearchService{
     // 블로그 검색 결과 파싱
     @Override
     public BlogVo parseBlogSearchResult(String resultStr, BlogFindDto dto, String type){
-        BlogVo blogVo = new BlogVo();
+        BlogVo blogVo = new BlogVo(null, null);
 
         if (type.equals(KAKAO)) {     // kakao data parsing
             try {
