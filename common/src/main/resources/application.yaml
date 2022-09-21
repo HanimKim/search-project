@@ -1,5 +1,9 @@
 server:
   port: ${SERVER_PORT:8080}
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
 
 spring:
   application:
@@ -29,4 +33,13 @@ spring:
           jdbc:
             # timezone 설정
             time_zone: ${HIBERNATE_TIME_ZONE:Asia/Seoul}
-
+  #### api 접속 정보
+  kakao-api:
+    host: https://dapi.kakao.com
+    blog-path: /v2/search/blog
+    rest-api-key: ${KAKAO_REST_API_KEY:189eb6ecdcb327cb0c1b48536423a2b7}
+  naver-api:
+    host: https://openapi.naver.com
+    blog-path: /v1/search/blog.json
+    client-id: ${NAVER_CLIENT_ID:7fMo3FfgheJQ6doCDGml}
+    client-secret: ${NAVER_CLIENT_SECRET:LmmJmoP8do}

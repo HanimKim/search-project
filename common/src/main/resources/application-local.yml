@@ -34,7 +34,7 @@ spring:
 #      url: ${DB_CONN_STRING:jdbc:h2:mem:~/test}
       jdbc-url: ${DB_CONN_STRING:jdbc:h2:mem:~/test_db} #; MODE=mysql;
       driver-class-name: org.h2.Driver
-      username: sa
+      username: ${DB_USERNAME:sa}
       password:
 #      username: ${DB_USERNAME:admin}
 #      password: ${DB_PASSWORD:1234}
@@ -42,8 +42,3 @@ spring:
     console:
       enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
       path: /test_db  # 콘솔의 경로
-
-  kakao-api:
-    host: http://dapi.kakao.com
-    blog-path: /v2/search/blog
-    rest-api-key: ${KAKAO_REST_API_KEY:189eb6ecdcb327cb0c1b48536423a2b7}

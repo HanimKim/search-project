@@ -10,6 +10,7 @@ public interface SearchService {
     BlogVo findBlog(BlogFindDto dto) throws Exception;
     List<SearchSentenceVo> findSearchSentences();
     String SearchBlogByKakaoApi(BlogFindDto dto);
+    String SearchBlogByNaverApi(BlogFindDto dto);
     String setBlogParameter(BlogFindDto dto, String type);
     BlogVo parseBlogSearchResult(String resultStr, BlogFindDto dto, String type);
 }

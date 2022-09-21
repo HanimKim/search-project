@@ -30,6 +30,8 @@ java -jar search-project.jar
 |  page   | Integer | 결과 페이지 번호, 1~50 사이의 값, 기본 값 1        |     X     |
 |  size   |  Integer   | 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10       |     X     |
 
+**필수값이 아닌 값들은 범위 밖의 값을 입력 할 경우, 자동으로 기본 값으로 검색 돤다.**
+
 ### Response
 
 **page**
