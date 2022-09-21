@@ -1,14 +1,14 @@
 # 검색 어플리케이션
 *****
 
-어플리케이션 빌드 파일(.jar) 다운로드
+#### 어플리케이션 빌드 파일(.jar) 다운로드 링크
 
-[search-project.jar](https://test.com, "download link")
+[search-project-1.0-SNAPSHOT.jar](https://github.com/HanimKim/search-project-bootjar)
 
 **sample**
 
 ```
-java -jar search-project.jar
+java -jar search-project-1.0-SNAPSHOT.jar
 ```
 
 ## 1. API 명세
